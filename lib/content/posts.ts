@@ -7,17 +7,24 @@ import readingTime from "reading-time";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
-export type Post = {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  tags: string[];
-  cover: string;
-  published: boolean;
-  readingTime: string;
-};
-
+export interface Post {
+    slug: string;
+    title: string;
+    description: string;
+    date: string;
+    tags: string[];
+    cover: string;
+    published: boolean;
+    readingTime: string;
+  }
+  interface Frontmatter {
+    title: string;
+    description: string;
+    date: string | Date;
+    tags: string[];
+    cover: string;
+    published: boolean;
+  }
 export function getAllPosts() {
   const files = fg.sync("**/index.mdx", {
     cwd: CONTENT_PATH,
@@ -33,14 +40,19 @@ export function getAllPosts() {
 
     const { data, content } = matter(source);
 
-    return {
+    const frontmatter = data as Frontmatter;
+        return {
       slug,
-      title: data.title,
-      description: data.description,
-      date: data.date,
-      tags: data.tags,
-      cover: data.cover,
-      published: data.published,
+      title: frontmatter.title,
+      description: frontmatter.description,
+      date: new Date(frontmatter.date).toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      }),
+      tags: frontmatter.tags,
+      cover: frontmatter.cover,
+      published: frontmatter.published,
       readingTime: readingTime(content).text,
     };
   });

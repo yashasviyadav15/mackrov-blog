@@ -1,4 +1,8 @@
+import { getAllPosts } from "@/lib/content/posts";
+import ArticleCard from "@/components/blog/ArticleCard";
 export default function Home() {
+  const posts = getAllPosts();
+
   return (
     <>
       <section className="py-20">
@@ -7,9 +11,8 @@ export default function Home() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-lg text-gray-600">
-          Thoughts on React, JavaScript,
-          Frontend Engineering, and building
-          software.
+          Thoughts on React, JavaScript, Frontend Engineering, and
+          building software.
         </p>
       </section>
 
@@ -18,10 +21,15 @@ export default function Home() {
           Latest Articles
         </h2>
 
-        <div className="rounded-xl border p-8">
-          <p className="text-gray-500">
-            No articles yet.
-          </p>
+        <div className="space-y-6">
+        <div className="space-y-6">
+  {posts.map((post) => (
+    <ArticleCard
+      key={post.slug}
+      post={post}
+    />
+  ))}
+</div>
         </div>
       </section>
     </>
