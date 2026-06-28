@@ -1,0 +1,998 @@
+---
+title: Testing mdx
+description:
+date: 2026-06-28
+tags:
+  - General
+cover: hero.png
+published: turue
+---
+
+# Welcome
+
+This is a **live demo** of MDXEditor with all default features on.
+
+> The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible.
+> The idea is that a Markdown-formatted document should be publishable as-is, as plain text,
+> without looking like it’s been marked up with tags or formatting instructions.
+
+[— Daring Fireball](https://daringfireball.net/projects/markdown/).
+
+In here, you can find the following markdown elements:
+
+* Headings
+* Lists
+  * Unordered
+  * Ordered
+  * Check lists
+  * And nested ;)
+* Links
+* Bold/Italic/Underline formatting
+* Tables
+* Code block editors
+* And much more.
+
+The current editor content is styled using the `@tailwindcss/typography` [plugin](https://tailwindcss.com/docs/typography-plugin).
+
+## What can you do here?
+
+This is a great location for you to test how editing markdown feels. If you have an existing markdown source, you can switch to source mode using the toggle group in the top right, paste it in there, and go back to rich text mode.
+
+If you need a few ideas, here's what you can try:
+
+1. Add your own code sample
+2. Change the type of the headings
+3. Insert a table, add a few rows and columns
+4. Switch back to source markdown to see what you're going to get as an output
+5. Test the diff feature to see how the markdown has changed
+6. Add a frontmatter block through the toolbar button
+
+## A code sample
+
+MDXEditor embeds CodeMirror for code editing.
+
+```tsx
+export default function App() {
+  return (<div>Hello world</div>)
+}
+```
+
+## A code example
+
+The block below is an editable React code sample.
+
+```jsx
+export default function App() {
+  return (<div>
+  <p>This is an editable React component. </p>
+  <p>Editing it will update the fenced codeblock in the markdown.</p>
+  </div>)
+}
+```
+
+## A table
+
+Play with the table below - add rows, columns, change column alignment. When editing,
+you can navigate the cells with `enter`, `shift+enter`, `tab` and `shift+tab`.
+
+| Item              | In Stock | Price |
+| :---------------- | :------: | ----: |
+| Python Hat        |   True   | 23.99 |
+| SQL Hat           |   True   | 23.99 |
+| Codecademy Tee    |   False  | 19.99 |
+| Codecademy Hoodie |   False  | 42.99 |
+
+<details>
+  <summary>Click to view common myths about Chickenpox</summary>
+
+- Myth 1
+- Myth 2
+- Myth 3
+
+</details>
+
+<iframe
+  width="100%"
+  height="450"
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  allowfullscreen>
+</iframe>
+
+<Tip>
+
+Drink plenty of fluids.
+
+</Tip>
+
+<Info>
+
+Chickenpox is caused by the varicella-zoster virus.
+
+</Info>
+
+<Warning>
+
+Avoid scratching the blisters.
+
+</Warning>
+
+<Danger>
+
+Never give aspirin to children with suspected chickenpox unless advised by a doctor.
+
+</Danger>
+
+<Success>
+
+Most healthy children recover completely within 1–2 weeks.
+
+</Success>
+
+<Note>
+
+Symptoms usually appear 10–21 days after exposure.
+
+</Note>
+
+# MDX Cheatsheet for Mackrov
+
+This file contains every commonly used Markdown/MDX feature available without writing custom React components.
+
+---
+
+# Headings
+
+```md
+# Heading 1
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+```
+
+---
+
+# Paragraph
+
+```md
+This is paragraph one.
+
+This is paragraph two.
+```
+
+---
+
+# Bold
+
+```md
+**Bold Text**
+```
+
+---
+
+# Italic
+
+```md
+*Italic Text*
+```
+
+---
+
+# Bold + Italic
+
+```md
+***Bold Italic***
+```
+
+---
+
+# Strikethrough
+
+```md
+~~Deleted Text~~
+```
+
+---
+
+# Horizontal Line
+
+```md
+---
+```
+
+or
+
+```md
+***
+```
+
+---
+
+# Inline Code
+
+```md
+Use `npm install`
+```
+
+---
+
+# Code Block
+
+````md
+```tsx
+function App() {
+  return <div>Hello</div>
+}
+```
+````
+
+Supports
+
+* JavaScript
+* TypeScript
+* React
+* HTML
+* CSS
+* JSON
+* Bash
+* Go
+* Python
+* Java
+* C#
+* SQL
+* YAML
+* Dockerfile
+
+and many more.
+
+---
+
+# Block Quote
+
+```md
+> This is a quote.
+```
+
+Nested
+
+```md
+> Level 1
+>
+>> Level 2
+```
+
+---
+
+# Unordered List
+
+```md
+- Apple
+- Orange
+- Banana
+```
+
+Alternative
+
+```md
+* Apple
+* Orange
+* Banana
+```
+
+---
+
+# Ordered List
+
+```md
+1. First
+
+2. Second
+
+3. Third
+```
+
+---
+
+# Nested Lists
+
+```md
+- Fruits
+
+  - Apple
+
+  - Mango
+
+- Vegetables
+
+  - Potato
+```
+
+---
+
+# Task Lists
+
+```md
+- [x] Completed
+
+- [ ] Pending
+
+- [ ] Review
+```
+
+---
+
+# Tables
+
+```md
+| Name | Age | City |
+|------|----:|------|
+| Yash | 26 | Bangalore |
+| John | 30 | London |
+```
+
+Center
+
+```md
+| Name | Age |
+|:----:|:---:|
+| A | 10 |
+```
+
+Left
+
+```md
+| Name |
+|:-----|
+```
+
+Right
+
+```md
+| Price |
+|------:|
+```
+
+---
+
+# Links
+
+```md
+[Google](https://google.com)
+```
+
+Open in new tab (HTML)
+
+```html
+<a href="https://google.com" target="_blank">
+
+Google
+
+</a>
+```
+
+---
+
+# Email
+
+```md
+<example@gmail.com>
+```
+
+---
+
+# Automatic URL
+
+```md
+<https://google.com>
+```
+
+---
+
+# Images (Your Component)
+
+```mdx
+<Image
+  src="/images/articles/my-post/image.webp"
+  alt="Description"
+/>
+```
+
+---
+
+# Emoji
+
+Simply type
+
+```text
+😀
+
+🚀
+
+📌
+
+⚠️
+
+✅
+
+❌
+
+💡
+
+🔥
+
+🎉
+```
+
+---
+
+# Escaping Characters
+
+```md
+\#
+
+\*
+
+\`
+
+\[
+```
+
+---
+
+# Footnotes (remark-gfm)
+
+```md
+Chickenpox is contagious.[^1]
+
+[^1]: WHO reference.
+```
+
+---
+
+# Definition Lists (HTML)
+
+```html
+<dl>
+
+<dt>Chickenpox</dt>
+
+<dd>A viral disease.</dd>
+
+</dl>
+```
+
+---
+
+# Keyboard Keys
+
+```html
+<kbd>Ctrl</kbd>
+
+<kbd>Shift</kbd>
+
+<kbd>Enter</kbd>
+```
+
+---
+
+# Highlight
+
+```html
+<mark>
+
+Important
+
+</mark>
+```
+
+---
+
+# Underline
+
+```html
+<u>
+
+Underline
+
+</u>
+```
+
+---
+
+# Small Text
+
+```html
+<small>
+
+Copyright 2026
+
+</small>
+```
+
+---
+
+# Superscript
+
+```html
+x<sup>2</sup>
+```
+
+---
+
+# Subscript
+
+```html
+H<sub>2</sub>O
+```
+
+---
+
+# Details / Accordion
+
+```html
+<details>
+
+<summary>
+
+Click here
+
+</summary>
+
+Hidden content
+
+</details>
+```
+
+---
+
+# HTML Line Break
+
+```html
+<br />
+```
+
+---
+
+# Divider
+
+```html
+<hr />
+```
+
+---
+
+# Center Content
+
+```html
+<div align="center">
+
+Centered Text
+
+</div>
+```
+
+---
+
+# Right Align
+
+```html
+<div align="right">
+
+Right Text
+
+</div>
+```
+
+---
+
+# Left Align
+
+```html
+<div align="left">
+
+Left Text
+
+</div>
+```
+
+---
+
+# Inline HTML
+
+```html
+<span style="color:red">
+
+Hello
+
+</span>
+```
+
+(Prefer CSS instead of inline styles.)
+
+---
+
+# Video
+
+```html
+<video
+controls
+width="100%">
+
+<source
+src="/videos/demo.mp4"
+type="video/mp4"/>
+
+</video>
+```
+
+---
+
+# Audio
+
+```html
+<audio controls>
+
+<source
+src="/audio/song.mp3"/>
+
+</audio>
+```
+
+---
+
+# YouTube (iframe)
+
+```html
+<iframe
+width="100%"
+height="500"
+src="https://www.youtube.com/embed/VIDEO_ID"
+allowfullscreen>
+
+</iframe>
+```
+
+---
+
+# Google Maps
+
+```html
+<iframe
+src="https://www.google.com/maps/embed?...">
+
+</iframe>
+```
+
+---
+
+# PDF
+
+```html
+<iframe
+src="/files/file.pdf"
+width="100%"
+height="700">
+
+</iframe>
+```
+
+---
+
+# SVG
+
+```html
+<img
+src="/images/logo.svg" />
+```
+
+---
+
+# HTML Comments
+
+```html
+<!-- Hidden -->
+```
+
+---
+
+# Markdown Comments
+
+Not supported.
+
+Use HTML comments.
+
+---
+
+# Check if Markdown supports...
+
+| Feature      | Supported |
+| ------------ | --------- |
+| Headings     | ✅         |
+| Lists        | ✅         |
+| Nested Lists | ✅         |
+| Checklists   | ✅         |
+| Tables       | ✅         |
+| Code Blocks  | ✅         |
+| Images       | ✅         |
+| HTML         | ✅         |
+| Videos       | ✅         |
+| Audio        | ✅         |
+| iframe       | ✅         |
+| Details      | ✅         |
+| Footnotes    | ✅         |
+| Links        | ✅         |
+| Blockquotes  | ✅         |
+| Emoji        | ✅         |
+| Superscript  | HTML      |
+| Subscript    | HTML      |
+| Highlight    | HTML      |
+| Underline    | HTML      |
+
+---
+
+# Things requiring custom React components
+
+```mdx
+<Tip />
+
+<Warning />
+
+<Info />
+
+<Note />
+
+<Danger />
+
+<Success />
+
+<Accordion />
+
+<Gallery />
+
+<Tabs />
+
+<Steps />
+
+<FileTree />
+
+<Terminal />
+
+<GitHub />
+
+<Tweet />
+
+<YouTube />
+
+<Mermaid />
+
+<Math />
+
+<Badge />
+
+<Card />
+
+<Callout />
+```
+
+These are powered by React, not Markdown.
+
+---
+
+# Writing Style Recommendation
+
+* Use H2 for main sections.
+* Use H3 for subsections.
+* Keep paragraphs 2–5 lines.
+* Prefer images over long explanations.
+* Use tables for comparisons.
+* Use blockquotes for references.
+* Use code blocks for commands.
+* Use `<details>` for optional content.
+* Use custom callouts (`<Tip>`, `<Warning>`) for important notes.
+
+
+# MDX Cheatsheet
+
+Everything that works out-of-the-box in Mackrov.
+
+---
+
+# Headings
+
+```md
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+```
+
+---
+
+# Paragraph
+
+```md
+This is paragraph one.
+
+This is paragraph two.
+```
+
+---
+
+# Bold
+
+```md
+**Bold**
+```
+
+---
+
+# Italic
+
+```md
+*Italic*
+```
+
+---
+
+# Bold + Italic
+
+```md
+***Bold Italic***
+```
+
+---
+
+# Strikethrough
+
+```md
+~~Deleted Text~~
+```
+
+---
+
+# Horizontal Line
+
+```md
+---
+```
+
+or
+
+```md
+***
+```
+
+---
+
+# Block Quote
+
+```md
+> This is a quote.
+```
+
+Nested
+
+```md
+> Level 1
+
+>> Level 2
+```
+
+---
+
+# Unordered List
+
+```md
+- Apple
+- Orange
+- Banana
+```
+
+---
+
+# Ordered List
+
+```md
+1. First
+
+2. Second
+
+3. Third
+```
+
+---
+
+# Nested Lists
+
+```md
+- Fruits
+
+  - Apple
+
+  - Mango
+
+- Vegetables
+
+  - Potato
+```
+
+---
+
+# Task Lists
+
+```md
+- [x] Completed
+
+- [ ] Pending
+```
+
+---
+
+# Tables
+
+```md
+| Name | Age | City |
+|------|----:|------|
+| Yash | 26 | Bangalore |
+| John | 30 | London |
+```
+
+Alignment
+
+```md
+| Left | Center | Right |
+|:-----|:------:|------:|
+| A | B | C |
+```
+
+---
+
+# Links
+
+```md
+[Google](https://google.com)
+```
+
+---
+
+# Automatic Link
+
+```md
+<https://google.com>
+```
+
+---
+
+# Email
+
+```md
+<example@gmail.com>
+```
+
+---
+
+# Inline Code
+
+```md
+Use `npm install`
+```
+
+---
+
+# Code Block
+
+````md
+```tsx
+function App() {
+  return <div>Hello</div>;
+}
+```
