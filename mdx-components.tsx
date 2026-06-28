@@ -1,6 +1,11 @@
 import type { MDXComponents } from "mdx/types";
 import type { ReactNode } from "react";
-
+import Tip from "@/components/mdx/Tip";
+import Warning from "@/components/mdx/Warning";
+import Info from "@/components/mdx/Info";
+import Note from "@/components/mdx/Note";
+import Danger from "@/components/mdx/Danger";
+import Success from "@/components/mdx/Success";
 import BlogImage from "@/components/blog/BlogImage";
 import { slugify } from "@/lib/content/slugify";
 
@@ -36,7 +41,12 @@ function getText(children: ReactNode): string {
 
 const components: MDXComponents = {
   Image: BlogImage,
-
+  Tip,
+  Warning,
+  Info,
+  Note,
+  Danger,
+  Success,
   h2: ({ children, ...props }) => {
     const id = slugify(getText(children));
 
@@ -57,6 +67,7 @@ const components: MDXComponents = {
     );
   },
 };
+
 
 export function useMDXComponents(): MDXComponents {
   return components;

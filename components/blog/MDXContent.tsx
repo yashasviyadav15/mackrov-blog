@@ -1,6 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
 import { useMDXComponents } from "@/mdx-components";
-
 type Props = {
   source: string;
 };
@@ -36,10 +37,23 @@ export default function MDXContent({ source }: Props) {
     prose-code:after:content-none
     "
   >
-      <MDXRemote
-        source={source}
-        components={useMDXComponents()}
-      />
+     <MDXRemote
+  source={source}
+  components={useMDXComponents()}
+  options={{
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+        [
+          rehypePrettyCode,
+          {
+            theme: "github-dark",
+          },
+        ],
+      ],
+    },
+  }}
+/>
     </div>
   );
 }
