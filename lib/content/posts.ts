@@ -55,5 +55,19 @@ export function getAllPosts() {
       published: frontmatter.published,
       readingTime: readingTime(content).text,
     };
-  });
+  })  .sort(
+    (a, b) =>
+      new Date(b.date).getTime() -
+      new Date(a.date).getTime()
+  );;
 }
+
+export function getPostBySlug(slug: string): Post | undefined {
+    return getAllPosts().find((post) => post.slug === slug);
+  }
+
+  export function getPostContent(slug: string) {
+    const filePath = path.join(CONTENT_PATH, slug, "index.mdx");
+  
+    return fs.readFileSync(filePath, "utf8");
+  }
