@@ -20,12 +20,12 @@ export default function Header() {
   className="flex flex-col transition-opacity hover:opacity-80"
 >
           <span className="text-2xl font-bold tracking-tight">
-            MACKROV
+          Mackrov&apos;s Blog
           </span>
 
-          <span className="text-sm text-zinc-500 dark:text-zinc-400">
+          {/* <span className="text-sm text-zinc-500 dark:text-zinc-400">
   Learn deeply. Explain clearly.
-</span>
+</span> */}
         </Link>
 
         <nav className="flex items-center gap-8">
