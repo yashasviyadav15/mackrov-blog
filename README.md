@@ -146,3 +146,4 @@ https://blog.mackrov.com
 ## License
 
 Personal project.
+https://chatgpt.com/share/6a413d2a-360c-83ee-8db5-1cc8a56b3e3f
