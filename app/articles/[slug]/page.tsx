@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import TableOfContents from "@/components/blog/TableOfContents";
 import MDXContent from "@/components/blog/MDXContent";
 import {
   getPostBySlug,
@@ -28,6 +29,7 @@ export async function generateMetadata({
       description: post.description,
     };
   }
+
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
 
@@ -40,6 +42,12 @@ export default async function ArticlePage({ params }: Props) {
   const source = getPostContent(slug);
 
   return (
+    <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[260px_1fr]">
+    <aside className="hidden lg:block">
+      <div className="sticky top-24">
+        <TableOfContents headings={post.headings} />
+      </div>
+    </aside>
     <article className="mx-auto max-w-3xl">
         <Link
   href="/"
@@ -73,5 +81,7 @@ export default async function ArticlePage({ params }: Props) {
       <MDXContent source={source} />
       </div>
     </article>
+    </div>
+
   );
 }

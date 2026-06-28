@@ -4,7 +4,7 @@ import Hero from "@/components/blog/Hero";
 import ArticlesList from "@/components/blog/ArticlesList";
 export default function Home() {
   const posts = getAllPosts();
-
+  console.log(posts[0].headings,"poste");
   return (
     <>
      <Hero />

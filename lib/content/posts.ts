@@ -1,22 +1,29 @@
 import fs from "node:fs";
 import path from "node:path";
-
+import { slugify } from "./slugify";
 import fg from "fast-glob";
 import matter from "gray-matter";
 import readingTime from "reading-time";
 
 const CONTENT_PATH = path.join(process.cwd(), "content");
 
+export interface Heading {
+  level: number;
+  text: string;
+  slug: string;
+}
+
 export interface Post {
-    slug: string;
-    title: string;
-    description: string;
-    date: string;
-    tags: string[];
-    cover: string;
-    published: boolean;
-    readingTime: string;
-  }
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  tags: string[];
+  cover: string;
+  published: boolean;
+  readingTime: string;
+  headings: Heading[];
+}
   interface Frontmatter {
     title: string;
     description: string;
@@ -24,6 +31,28 @@ export interface Post {
     tags: string[];
     cover: string;
     published: boolean;
+  }
+  function extractHeadings(content: string): Heading[] {
+    return content
+      .split("\n")
+      .filter((line) => /^#{2,3}\s/.test(line))
+      .map((line) => {
+        const hashes = line.match(/^#+/)![0];
+  
+        const text = line
+  .replace(/^#{2,3}\s/, "")
+  .replace(/^\d+\.\s*/, "")
+  .trim();
+  
+        return {
+          level: hashes.length,
+          text,
+          slug: text
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, "")
+            .replace(/\s+/g, "-"),
+        };
+      });
   }
 export function getAllPosts() {
   const files = fg.sync("**/index.mdx", {
@@ -54,7 +83,7 @@ export function getAllPosts() {
       cover: frontmatter.cover,
       published: frontmatter.published,
       readingTime: readingTime(content).text,
-    };
+      headings: extractHeadings(content),    };
   }) .filter((post) => post.published)  .sort(
     (a, b) =>
       new Date(b.date).getTime() -

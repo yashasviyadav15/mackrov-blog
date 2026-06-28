@@ -11,7 +11,7 @@ type Props = {
 
 export default function ArticlesList({ posts }: Props) {
   const [query, setQuery] = useState("");
-
+  console.log(posts[0].headings,"post");
   const filteredPosts = useMemo(() => {
     if (!query) return posts;
 
