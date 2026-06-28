@@ -19,7 +19,7 @@ export default function ArticlesList({ posts }: Props) {
 
       return (
         post.title.toLowerCase().includes(q) ||
-        post.description.toLowerCase().includes(q) ||
+        post?.description?.toLowerCase().includes(q) ||
         post.tags.some((tag) =>
           tag.toLowerCase().includes(q)
         )
