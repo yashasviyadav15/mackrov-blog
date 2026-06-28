@@ -4,7 +4,6 @@ export default function Footer() {
         <div className="mx-auto max-w-5xl px-6 py-8">
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} Mackrov.
-            Built with Next.js.
           </p>
         </div>
       </footer>
