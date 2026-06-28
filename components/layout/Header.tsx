@@ -20,7 +20,7 @@ export default function Header() {
   className="flex flex-col transition-opacity hover:opacity-80"
 >
           <span className="text-2xl font-bold tracking-tight">
-            Mackrov's Blog
+          Mackrov&apos;s Blog
           </span>
 
           {/* <span className="text-sm text-zinc-500 dark:text-zinc-400">
