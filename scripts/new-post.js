@@ -27,6 +27,16 @@ rl.question("Article title: ", (title) => {
   }
 
   fs.mkdirSync(dir, { recursive: true });
+  const imageDir = path.join(
+    __dirname,
+    "..",
+    "public",
+    "images",
+    "articles",
+    slug
+  );
+  
+  fs.mkdirSync(imageDir, { recursive: true });
 
   const today = new Date().toISOString().split("T")[0];
 
