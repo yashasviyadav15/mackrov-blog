@@ -47,10 +47,7 @@ export interface Post {
         return {
           level: hashes.length,
           text,
-          slug: text
-            .toLowerCase()
-            .replace(/[^\w\s-]/g, "")
-            .replace(/\s+/g, "-"),
+          slug: slugify(text),
         };
       });
   }
@@ -98,5 +95,10 @@ export function getPostBySlug(slug: string): Post | undefined {
   export function getPostContent(slug: string) {
     const filePath = path.join(CONTENT_PATH, slug, "index.mdx");
   
-    return fs.readFileSync(filePath, "utf8");
+    // return fs.readFileSync(filePath, "utf8");
+    const source = fs.readFileSync(filePath, "utf8");
+
+const { content } = matter(source);
+
+return content;
   }

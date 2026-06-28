@@ -7,7 +7,7 @@ import {
   getPostContent,
 } from "@/lib/content/posts";
 import type { Metadata } from "next";
-
+import ReadingProgress from "@/components/blog/ReadingProgress";
 type Props = {
   params: Promise<{
     slug: string;
@@ -42,6 +42,8 @@ export default async function ArticlePage({ params }: Props) {
   const source = getPostContent(slug);
 
   return (
+    <>
+    <ReadingProgress />
     <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[260px_1fr]">
     <aside className="hidden lg:block">
       <div className="sticky top-24">
@@ -55,6 +57,9 @@ export default async function ArticlePage({ params }: Props) {
 >
   ← Back to Articles
 </Link>
+<div className="mb-8 lg:hidden">
+  <TableOfContents headings={post.headings} />
+</div>
       <header className="mb-14 border-b pb-8">
         <h1 className="text-5xl font-bold tracking-tight">
           {post.title}
@@ -82,6 +87,6 @@ export default async function ArticlePage({ params }: Props) {
       </div>
     </article>
     </div>
-
+    </>
   );
 }

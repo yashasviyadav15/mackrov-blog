@@ -12,7 +12,7 @@ export default function Hero() {
         </h1>
   
         <p className="mt-8 max-w-2xl text-xl leading-8 text-gray-600">
-          I'm Yash, a frontend developer who enjoys learning about
+          I am Yash, a frontend developer who enjoys learning about
           technology, health, travel, sports, music and anything
           interesting enough to understand deeply.
         </p>
