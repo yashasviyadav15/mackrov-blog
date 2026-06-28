@@ -1,12 +1,15 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Tell Tailwind v4 that `dark:` should use the .dark class */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-.dark {
+html.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
 }
@@ -22,6 +25,7 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
 html {
   scroll-behavior: smooth;
 }
