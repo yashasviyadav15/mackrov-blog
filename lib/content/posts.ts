@@ -55,7 +55,7 @@ export function getAllPosts() {
       published: frontmatter.published,
       readingTime: readingTime(content).text,
     };
-  })  .sort(
+  }) .filter((post) => post.published)  .sort(
     (a, b) =>
       new Date(b.date).getTime() -
       new Date(a.date).getTime()

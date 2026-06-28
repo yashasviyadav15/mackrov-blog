@@ -1,17 +1,33 @@
 import { notFound } from "next/navigation";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
+import MDXContent from "@/components/blog/MDXContent";
 import {
   getPostBySlug,
   getPostContent,
 } from "@/lib/content/posts";
+import type { Metadata } from "next";
 
 type Props = {
   params: Promise<{
     slug: string;
   }>;
 };
-
+export async function generateMetadata({
+    params,
+  }: Props): Promise<Metadata> {
+    const { slug } = await params;
+  
+    const post = getPostBySlug(slug);
+  
+    if (!post) {
+      return {};
+    }
+  
+    return {
+      title: post.title,
+      description: post.description,
+    };
+  }
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
 
@@ -54,7 +70,7 @@ export default async function ArticlePage({ params }: Props) {
       </header>
 
       <div className="prose prose-lg max-w-none">
-        <MDXRemote source={source} />
+      <MDXContent source={source} />
       </div>
     </article>
   );

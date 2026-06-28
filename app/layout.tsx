@@ -5,8 +5,15 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Mackrov",
-  description: "Engineering Notes by Yash",
+  metadataBase: new URL("https://blog.mackrov.com"),
+
+  title: {
+    default: "Mackrov",
+    template: "%s | Mackrov",
+  },
+
+  description:
+    "Engineering notes on React, JavaScript and Frontend Development.",
 };
 
 export default function RootLayout({

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
+    "new-post": "node scripts/new-post.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -22,7 +23,9 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "reading-time": "^1.5.0",
-    "remark-gfm": "^4.0.1"
+    "rehype-pretty-code": "^0.14.3",
+    "remark-gfm": "^4.0.1",
+    "shiki": "^4.3.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
